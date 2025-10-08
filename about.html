@@ -108,17 +108,18 @@
             width: 90% !important;
             max-width: 1280px !important;
         }
-#popup-form {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
 
-#popup-form.show {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-}
+        #popup-form {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #popup-form.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+        }
 
         /* Popup Form Styles */
         #popup-form.show {
@@ -664,7 +665,7 @@
             }
         });
     </script>
-    
+
 
     <!-- Form Submission Handler (same as index) -->
     <script>
@@ -710,50 +711,50 @@
                     });
             });
         });
-       
-    
-</script>
-<script>
-    const popup = document.getElementById('popup-form');
-    const closePopup = document.getElementById('close-popup');
-    const popupInterval = 30000; // 60000ms = 1 minute interval
-    const initialDelay = 20000; // 20000ms = 20 seconds initial delay
 
-    // Function to show popup
-    function showPopup() {
-        popup.classList.add('show');
-        popup.classList.remove('opacity-0', 'pointer-events-none');
-        popup.classList.add('opacity-100');
-    }
 
-    // Function to hide popup
-    function hidePopup() {
-        popup.classList.remove('show');
-        popup.classList.add('opacity-0', 'pointer-events-none');
-    }
+    </script>
+    <script>
+        const popup = document.getElementById('popup-form');
+        const closePopup = document.getElementById('close-popup');
+        const popupInterval = 30000; // 60000ms = 1 minute interval
+        const initialDelay = 20000; // 20000ms = 20 seconds initial delay
 
-    // Show popup after initial delay
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            showPopup();
-        }, initialDelay);
-    });
-
-    // Close popup when clicking X
-    closePopup.addEventListener('click', () => {
-        hidePopup();
-        // Reopen after interval
-        setTimeout(showPopup, popupInterval);
-    });
-
-    // Close popup when clicking outside
-    popup.addEventListener('click', (e) => {
-        if (e.target === popup) {
-            hidePopup();
-            setTimeout(showPopup, popupInterval);
+        // Function to show popup
+        function showPopup() {
+            popup.classList.add('show');
+            popup.classList.remove('opacity-0', 'pointer-events-none');
+            popup.classList.add('opacity-100');
         }
-    });
-</script>
+
+        // Function to hide popup
+        function hidePopup() {
+            popup.classList.remove('show');
+            popup.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Show popup after initial delay
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                showPopup();
+            }, initialDelay);
+        });
+
+        // Close popup when clicking X
+        closePopup.addEventListener('click', () => {
+            hidePopup();
+            // Reopen after interval
+            setTimeout(showPopup, popupInterval);
+        });
+
+        // Close popup when clicking outside
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                hidePopup();
+                setTimeout(showPopup, popupInterval);
+            }
+        });
+    </script>
 
 </body>
 
